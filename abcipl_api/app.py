@@ -23,17 +23,7 @@ def inex():
         'innings_team': request.json['team1'],
     }
 
-    prediction_response = []
-    prediction_response.append(json.loads(predict(match_input_one)))
-
-    match_input_two = {        
-        'team1': request.json['team1'],
-        'team2': request.json['team2'],
-        'venue': request.json['venue'],
-        'innings_team': request.json['team2'],
-    }
-  
-    prediction_response.append(json.loads(predict(match_input_one)))
+    prediction_response = json.loads(predict(match_input_one))
 
     return jsonify(prediction_response)
 

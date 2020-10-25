@@ -20,5 +20,7 @@ py -m venv env
 
 pip install flask python-dotenv
 
+pip install -U flask-cors
+
 flask run
 

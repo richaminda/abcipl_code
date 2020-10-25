@@ -15,31 +15,42 @@ class PredictionResponses extends Component
         };
     }
 
-    render() {
-      const prediction = this.props.predictionResponseList.map((predictionR) => {
-        return(
-          			
-			 <div  className="col-12 col-md-5 m-1">
-			  <center><h1>Prediction Responses</h1></center>
-                <Card key={predictionR.id}>                
-                  <CardImgOverlay>
-                      <CardTitle>{predictionR.winning_team}</CardTitle>
-                  </CardImgOverlay>
+
+    renderPredictionResponse(predictionResponse) {
+        if (predictionResponse != null)
+            return(
+                <Card>                    
+                    <CardBody>
+                      <CardTitle>{predictionResponse.winning_team}</CardTitle>
+                      <CardText>{predictionResponse.wicket}</CardText>
+                    </CardBody>
                 </Card>
-              </div>
             );
-	  });
-	  
+        else
+            return(
+                <div></div>
+            );
+    }
+
+
+
+    render() {
+     
+      alert("richa"+this.props.predictionResponse);
+      
+
+     
+
+
 	   return (
             <div className="container">
-                <div className="row">
-                    {prediction}
+                <div className="row">               
+                <div  className="col-12 col-md-5 m-1">
+                <center><h1>Prediction Responses</h1></center>
+                {this.renderPredictionResponse(this.props.predictionResponse)}
+              </div>
                 </div>
-                <div className="row">
-                  <div  className="col-12 col-md-5 m-1">
-                   
-                  </div>
-                </div>
+               
             </div>
         );
     }
